@@ -30,12 +30,12 @@ jobs:
 
       - name: Build an image from Dockerfile
         run: |
-          docker pull ubuntu:latest
+          docker pull docker.io/ubuntu:bionic-20180224
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@2a2157eb22c08c9a1fac99263430307b8d1bc7a2
         with:
-          image-ref: 'docker.io/ubuntu:latest'
+          image-ref: 'docker.io/ubuntu:bionic-20180224'
           format: 'template'
           template: '@/contrib/sarif.tpl'
           output: 'trivy-results.sarif'
